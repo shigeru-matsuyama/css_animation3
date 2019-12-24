@@ -15,30 +15,32 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <style type="text/css">
-    .animation02 {
+    .animation04 {
       width: 300px;
       padding: 10px 20px;
       text-align: center;
       font-weight: bold;
       border: 1px solid #999;
-      animation: sample_anime02 3s infinite paused;
+      margin-top: 500px;
     }
 
-    .animation02:hover {
-      animation-play-state: running;
+    .start_anime02 {
+      animation: sample_anime03 3s;
     }
 
-    @keyframes sample_anime02 {
+    @keyframes sample_anime03 {
       0% {
         background-color: skyblue;
       }
 
       50% {
         background-color: pink;
+        color: #fff;
       }
 
       100% {
         background-color: orange;
+        box-shadow: 20px 10px 10px #8D9EB8;
       }
     }
   </style>
@@ -46,12 +48,40 @@
 
 <body>
   <div class="container">
-    <p class="animation02">My Animation Sanple :hover</p>
+    <p class="animation04">My Animation Sanple (Scroll)</p>
   </div>
 
-
-
   <script>
+    // $(window).scroll(function () {
+    //   var windowH = $(window).height(),
+    //     scrollY = $(window).scrollTop(),
+    //     elPosition = $('.animation04').offset().top;
+    //   if (scrollY > elPosition - windowH) {
+    //     $('.animation04').addClass("start_anime02");
+    //   }
+    // });
+    $(window).scroll(function () {
+      var windowH = $(window).height(),
+        scrollY = $(window).scrollTop();
+      $('.animation04').each(function () {
+        var elPosition = $(this).offset().top;
+        if (scrollY > elPosition - windowH) {
+          $(this).addClass("start_anime02");
+        }
+      });
+    });
+    // $(window).scroll(function () {
+    //   var windowH = $(window).height(),
+    //     scrollY = $(window).scrollTop();
+    //   $('.animation04').each(function () {
+    //     var elPosition = $(this).offset().top;
+    //     if (scrollY > elPosition - windowH) {
+    //       $(this).addClass("start_anime02");
+    //     } else {
+    //       $(this).removeClass("start_anime02");
+    //     }
+    //   });
+    // });
   </script>
 </body>
 
